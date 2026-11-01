@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minecraft Smart Quiz</title>
+
+    <!-- Піксельний шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Підключення CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Екран старту -->
+        <div id="start-screen" class="screen">
+
+            <h2>Smart Quiz</h2>
+            <div class="subtitle">Minecraft Edition</div>
+
+            <p class="instruction">Обери складність:</p>
+
+            <div class="difficulty-selector">
+                <button class="diff-btn selected" data-diff="peaceful">
+                    Peaceful (Мирний)
+                </button>
+
+                <button class="diff-btn" data-diff="normal">
+                    Normal (Звичайний)
+                </button>
+
+                <button class="diff-btn" data-diff="hardcore">
+                    Hardcore (Хардкор)
+                </button>
+            </div>
+
+            <button id="start-btn" class="mc-btn">
+                Почати гру
+            </button>
+
+        </div>
+
+        <!-- Екран вікторини -->
+        <div id="quiz-screen" class="screen hide">
+
+            <div class="header">
+                <span id="timer">Час: 5:00</span>
+                <span id="score-display">Бали: 0</span>
+            </div>
+
+            <div class="question-box">
+                <h2 id="question-text">Запитання...</h2>
+            </div>
+
+            <div id="answers-container"></div>
+
+        </div>
+
+        <!-- Екран результатів -->
+        <div id="result-screen" class="screen hide">
+
+            <h2>Гру завершено!</h2>
+
+            <div class="result-box">
+
+                <p id="final-score">
+                    Ваш результат: 0
+                </p>
+
+            </div>
+
+            <button id="restart-btn" class="mc-btn">
+                Знову в бій
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Підключення JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
