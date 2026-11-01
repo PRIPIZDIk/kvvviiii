@@ -1,0 +1,296 @@
+
+/* Базові налаштування */
+
+:root {
+    --mc-green: #55ff55;
+    --mc-dark-green: #388700;
+    --mc-red: #ff5555;
+    --mc-yellow: #ffff55;
+    --mc-gray: #c6c6c6;
+    --mc-dark-gray: #373737;
+    --mc-bg: #1e1b18;
+}
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    font-family: 'Press Start 2P', monospace, sans-serif;
+    background-color: var(--mc-bg);
+
+    background-image:
+        radial-gradient(circle at 50% 50%, rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+        repeating-linear-gradient(
+            0deg,
+            #181614,
+            #181614 32px,
+            #221f1c 32px,
+            #221f1c 64px
+        );
+
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    text-shadow: 2px 2px 0px #000;
+}
+
+/* Основний контейнер */
+
+.app-container {
+    background: var(--mc-gray);
+    border: 4px solid #ffffff;
+
+    box-shadow:
+        inset -4px -4px 0px #555555,
+        inset 4px 4px 0px #ffffff,
+        0 10px 25px rgba(0,0,0,0.8);
+
+    width: 100%;
+    max-width: 650px;
+    padding: 25px;
+    color: #373737;
+    text-shadow: none;
+    position: relative;
+}
+
+/* Екрани */
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.hide {
+    display: none !important;
+}
+
+h2 {
+    font-size: 18px;
+    color: #373737;
+    text-shadow: 2px 2px 0 #ffffff;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 10px;
+    color: #555;
+    margin-top: -10px;
+}
+
+.instruction {
+    font-size: 10px;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Вибір складності */
+
+.difficulty-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.diff-btn {
+    padding: 12px;
+    font-family: inherit;
+    font-size: 10px;
+    background: #8b8b8b;
+    color: #fff;
+    border: 2px solid #000;
+    cursor: pointer;
+
+    box-shadow:
+        inset -2px -2px 0px #373737,
+        inset 2px 2px 0px #ffffff;
+
+    text-shadow: 1px 1px 0 #000;
+    transition: all 0.1s;
+}
+
+.diff-btn.selected {
+    background: #388700;
+
+    box-shadow:
+        inset -2px -2px 0px #1e4a00,
+        inset 2px 2px 0px #a4ff6e;
+
+    color: #ffff55;
+}
+
+/* Загальні кнопки Minecraft */
+
+.mc-btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    padding: 15px 20px;
+    width: 100%;
+    background: #7d7d7d;
+    color: #ffffff;
+    border: 2px solid #000000;
+
+    box-shadow:
+        inset -3px -3px 0px #373737,
+        inset 3px 3px 0px #dbdbdb;
+
+    cursor: pointer;
+    text-shadow: 1px 1px 0px #000;
+}
+
+.mc-btn:hover:not(:disabled) {
+    background: #6c6c6c;
+    color: #ffffa0;
+}
+
+.mc-btn:active:not(:disabled) {
+    box-shadow:
+        inset 3px 3px 0px #373737,
+        inset -3px -3px 0px #dbdbdb;
+}
+
+.mc-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Шапка вікторини */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: #373737;
+    padding: 12px;
+    border: 2px solid #000;
+    color: #fff;
+    font-size: 10px;
+
+    box-shadow:
+        inset -2px -2px 0 #1e1e1e,
+        inset 2px 2px 0 #777;
+}
+
+#timer {
+    color: var(--mc-yellow);
+}
+
+#score-display {
+    color: var(--mc-green);
+}
+
+/* Блок запитання */
+
+.question-box {
+    background: #a8a8a8;
+    border: 2px solid #000;
+    padding: 20px;
+    width: 100%;
+
+    box-shadow:
+        inset -2px -2px 0 #707070,
+        inset 2px 2px 0 #dbdbdb;
+}
+
+#question-text {
+    font-size: 12px;
+    color: #000;
+    text-shadow: none;
+    line-height: 1.6;
+}
+
+/* Варіанти відповідей */
+
+#answers-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+}
+
+.answer-btn {
+    font-size: 10px;
+    min-height: 55px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.4;
+}
+
+/* Правильна відповідь */
+
+.answer-btn.correct {
+    background: #2e7d32 !important;
+    color: #a4ff6e !important;
+
+    box-shadow:
+        inset -3px -3px 0px #1b5e20,
+        inset 3px 3px 0px #81c784 !important;
+}
+
+/* Неправильна відповідь */
+
+.answer-btn.wrong {
+    background: #c62828 !important;
+    color: #ff8a80 !important;
+
+    box-shadow:
+        inset -3px -3px 0px #8e0000,
+        inset 3px 3px 0px #e57373 !important;
+}
+
+/* Екран результатів */
+
+.result-box {
+    background: #373737;
+    color: #fff;
+    padding: 20px;
+    border: 2px solid #000;
+    width: 100%;
+    font-size: 11px;
+    line-height: 1.8;
+
+    box-shadow:
+        inset -2px -2px 0 #1e1e1e,
+        inset 2px 2px 0 #777;
+}
+
+.achievement-title {
+    color: var(--mc-yellow);
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* Адаптація під телефони */
+
+@media (max-width: 500px) {
+
+    #answers-container {
+        grid-template-columns: 1fr;
+    }
+
+    .app-container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    .header {
+        font-size: 8px;
+    }
+
+}
